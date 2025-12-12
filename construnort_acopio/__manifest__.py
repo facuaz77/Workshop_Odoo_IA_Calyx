@@ -10,7 +10,7 @@
         - Wizard para procesar el acopio
         - Grupo de seguridad para control de acceso
     """,
-    'author': 'Construnort',
+    'author': 'Facundo Alaniz',
     'website': 'https://www.construnort.com',
     'depends': ['base', 'sale_management'],
     'data': [
