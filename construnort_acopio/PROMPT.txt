@@ -1,0 +1,61 @@
+Prompt usado para generar el módulo `construnort_acopio`:
+
+Role: Actúa como un desarrollador experto en Odoo 15. Task: Generar un nuevo módulo llamado construnort_acopio.
+
+Ubicación del proyecto: El módulo debe crearse dentro del directorio: Workshop_Odoo_IA_Calyx/construnort_acopio.
+
+Requerimientos Técnicos:
+
+Manifest (__manifest__.py):
+
+Debe depender explícitamente del módulo base y sale ('depends': ['base', 'sale']) para asegurar que se instale correctamente sobre Ventas.
+
+Importante: NO generar archivos de documentación como README.md por el momento.
+
+Modelo (sale.order):
+
+Heredar sale.order.
+
+Agregar al campo state (Selection) una nueva opción: clave 'acopio', etiqueta "Acopio".
+
+Asegurar que este nuevo estado se refleje en el statusbar de la vista formulario.
+
+Wizard (TransientModel):
+
+Crear un wizard llamado construnort.acopio.wizard.
+
+Incluir un campo Boolean (ej. check_process) que el usuario debe marcar.
+
+Incluir un botón/método "Confirmar" que valide el booleano y cambie el state de la orden activa a 'acopio'.
+
+Vistas (XML):
+
+En sale.order: Agregar un botón en el <header> con el texto "Acopio".
+
+Este botón debe abrir el wizard creado arriba.
+
+Visibilidad: El botón solo debe ser visible si el usuario pertenece al grupo construct_acopio.
+
+Seguridad:
+
+Crear el grupo de seguridad construct_acopio.
+
+Generar el archivo ir.model.access.csv para dar permisos al wizard.
+
+
+Cambios posteriores realizados por el desarrollador:
+- Se corrigió el orden de carga en el manifest para cargar primero la vista del wizard y luego la vista que referencia la acción.
+- La dependencia `sale` fue cambiada a `sale_management`.
+
+
+Registro de archivos creados:
+- __manifest__.py
+- __init__.py
+- models/sale_order.py
+- wizard/construnort_acopio_wizard.py
+- wizard/construnort_acopio_wizard_views.xml
+- views/sale_order_views.xml
+- security/security_groups.xml
+- security/ir.model.access.csv
+- README.md (creado posteriormente a pedido)
+- PROMPT.txt (este archivo)
